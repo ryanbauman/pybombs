@@ -1,0 +1,15 @@
+[config]
+timeout = 30
+gitcache = 
+cc = gcc
+forcepkgs = 
+makewidth = 4
+satisfy_order = rpm,src
+gitoptions = 
+cxx = g++
+prefix = /usr/local/
+builddocs = OFF
+gituser = bagoulla
+forcebuild = gnuradio,uhd,gr-air-modes,gr-osmosdr,gr-iqbal,gr-fcdproplus,uhd,rtl-sdr,osmo-sdr,hackrf,gqrx,bladeRF,airspy
+cmakebuildtype = RelWithDebInfo
+
