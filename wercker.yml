@@ -1,0 +1,10 @@
+box: centos:6
+# The steps that will be executed in the build pipeline
+build:
+  steps:
+    # Build the project
+    - script:
+        name: build
+        code: |
+          ./pybombs -v install gnuradio
+
