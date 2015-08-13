@@ -564,20 +564,20 @@ def rpm_install(namelist):
     try:
         nlj = namelist.name;
     except:
-        return True;
-    if(namelist is list):
-        nlj = " ".join(namelist);
-    return sudorun("yum -y install %s"%(nlj));
-
-def rpm_install(namelist):
-    v.print_v(v.PDEBUG, "rpm install: "+str(namelist))
-    try:
-        nlj = namelist.name;
-    except:
         if(namelist.combiner == "&&"):
+            print "Multiple packages provided, installing both"
             return rpm_install(namelist.first) and rpm_install(namelist.second);
         elif(namelist.combiner == "||"):
-            return rpm_install(namelist.first) or rpm_install(namelist.second);
+            print "Multiple options provided, checking to see which is acceptable"
+            if (rpm_exists(namelist.first.name, comparator=namelist.first.compare, version=namelist.first.version)):
+                print "The first option succeeded, installing %s" % (namelist.first.name)
+                return rpm_install(namelist.first)
+            elif (rpm_exists(namelist.second.name, comparator=namelist.second.compare, version=namelist.second.version)):
+                print "The second option succeeded, installing %s" % (namelist.second.name)
+                return rpm_install(namelist.second)
+            else:
+                print "Neither option succeeded, this should not have happened!"
+                return False
         else:
             print "invalid combiner logic."
             return false;
