@@ -1,4 +1,4 @@
 [submodule "recipes"]
-	path = recipes
-	url = https://github.com/bagoulla/recipes.git
+    path = recipes
+    url = https://github.com/bagoulla/recipes.git
     branch = master
