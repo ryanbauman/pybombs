@@ -1,22 +1,13 @@
 box: centos:6
-
-    
-# The steps that will be executed in the build pipeline
+command-timeout: 60
+no-response-timeout: 15
 build:
   steps:
-# This does not seem to work with a centOS box
-#    - install-packages:
-#        # This is "Development Tools" and git, wget, bzip2, tar, and zlib-devel
-#        packages: git wget bzip2 tar zlib-devel autoconf automake binutils bison flex gcc gcc-c++ gettext libtool make patch pkgconfig redhat-rpm-config rpm-build
-#
-    # Build the project
     - script:
         name: build
         code: |
-          yum clean all
           # This should eventually get fixed, we shouldnt have to pull in zlib-devel, tar, wget etc. It should rpm install those, setuptools needed for mako install
-          yum install -y git wget bzip2 tar zlib-devel epel-release file python-setuptools
-          # Needed for gcc and some other stuff, again, it should pull that in but doesnt
-          yum groupinstall -y "Development Tools"
+          # Development tools needed for gcc and some other stuff, again, it should pull that in but doesnt
+          yum install -y git wget bzip2 tar zlib-devel epel-release file python-setuptools @"Development Tools"
           ./pybombs -v install gnuradio
 
