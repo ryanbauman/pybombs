@@ -1,5 +1,6 @@
 box: centos:6
 command-timeout: 60
+no-response-timeout: 15
 build:
   steps:
     - script:
