@@ -1,4 +1,4 @@
-[![wercker status](https://app.wercker.com/status/57a099067fc862baa35d5695abc1a7b2/m "wercker status")](https://app.wercker.com/project/bykey/57a099067fc862baa35d5695abc1a7b2)
+[![wercker status](https://app.wercker.com/status/3cf05bf9e9e2c6090bd0e6be854c7979/m "wercker status")](https://app.wercker.com/project/bykey/3cf05bf9e9e2c6090bd0e6be854c7979)
 
 #
 # Copyright 2013 Tim O'Shea
